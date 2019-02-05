@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "product")
 public class product {
@@ -11,15 +12,11 @@ public class product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
-	/*
-	@ManyToOne
-	@JoinColumn
-	private product_group groupProd; */
 	
 	@Column(length = 255)
 	private String name;
 	
-	@Column(length = 65000)
+	@Column(length = 65500)
 	private String picture;
 	
 	private BigDecimal msrp_price;
@@ -29,6 +26,9 @@ public class product {
 	@Column(length = 5120)
 	private String description;
 	
+	@Column(nullable = true)
+	private int group_id;
+	
 	public int getId() {
 		return Id;
 	}
@@ -36,15 +36,7 @@ public class product {
 	public void setId(int id) {
 		Id = id;
 	}
-/*
-	public product_group getGroup() {
-		return groupProd;
-	}
-
-	public void setGroup(product_group groupProd) {
-		this.groupProd = groupProd;
-	} */
-
+	
 	public String getName() {
 		return name;
 	}

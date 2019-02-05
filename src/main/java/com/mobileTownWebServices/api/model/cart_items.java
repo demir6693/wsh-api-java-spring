@@ -2,13 +2,27 @@ package com.mobileTownWebServices.api.model;
 
 import java.sql.Date;
 
-public class cart_items {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Id;
 
+@Entity
+@Table(name = "cart_items")
+public class cart_items {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
 	
 	private int product_id;
 	
-	private product product;
+	private int cart_id;
+	
+	private Date date_added;
+	
+	private int quantity;
 	
 	public int getId() {
 		return Id;
@@ -26,28 +40,12 @@ public class cart_items {
 		this.product_id = product_id;
 	}
 
-	public product getProduct() {
-		return product;
-	}
-
-	public void setProduct(product product) {
-		this.product = product;
-	}
-
 	public int getCart_id() {
 		return cart_id;
 	}
 
 	public void setCart_id(int cart_id) {
 		this.cart_id = cart_id;
-	}
-
-	public cart getCart() {
-		return cart;
-	}
-
-	public void setCart(cart cart) {
-		this.cart = cart;
 	}
 
 	public Date getDate_added() {
@@ -66,11 +64,4 @@ public class cart_items {
 		this.quantity = quantity;
 	}
 
-	private int cart_id;
-	
-	private cart cart;
-	
-	private Date date_added;
-	
-	private int quantity;
 }

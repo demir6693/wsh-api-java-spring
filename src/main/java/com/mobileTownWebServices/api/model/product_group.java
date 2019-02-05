@@ -3,8 +3,6 @@ package com.mobileTownWebServices.api.model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import java.util.Set;
-
 import javax.persistence.*;
 
 @Entity
@@ -17,10 +15,7 @@ public class product_group {
 	
 	@Column(length = 100)
 	private String Name;
- /*
-	@OneToMany(mappedBy = "groupProd", cascade = CascadeType.ALL)
-	private Set<product> product; */
-	
+
 	public int getId() {
 		return Id;
 	}
