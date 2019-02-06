@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -65,5 +66,11 @@ public class userController {
 	public void deleteUser(@PathVariable int id)
 	{
 		_userRepo.deleteById(id);
+	}
+	
+	@GetMapping("/users/login")
+	public user login(@RequestHeader String user_name, @RequestHeader String password)
+	{
+		return _userRepo.loginUser(user_name, password);
 	}
 }

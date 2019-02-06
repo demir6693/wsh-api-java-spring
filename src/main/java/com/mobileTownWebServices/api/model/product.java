@@ -16,7 +16,7 @@ public class product {
 	@Column(length = 255)
 	private String name;
 	
-	@Column(length = 65500)
+	@Column(length = 2)
 	private String picture;
 	
 	private BigDecimal msrp_price;
@@ -28,6 +28,9 @@ public class product {
 	
 	@Column(nullable = true)
 	private int group_id;
+	
+	@Column(nullable = true)
+	private int brand_id;
 	
 	public int getId() {
 		return Id;
@@ -75,6 +78,22 @@ public class product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public int getGroup_id() {
+		return group_id;
+	}
+
+	public void setGroup_id(int group_id) {
+		this.group_id = group_id;
+	}
+
+	public int getBrand_id() {
+		return brand_id;
+	}
+
+	public void setBrand_id(int brand_id) {
+		this.brand_id = brand_id;
 	}
 
 	
