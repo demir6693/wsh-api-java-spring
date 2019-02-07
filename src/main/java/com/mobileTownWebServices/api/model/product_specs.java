@@ -1,10 +1,27 @@
 package com.mobileTownWebServices.api.model;
 
-public class product_specs {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Id;
 
+@Entity
+@Table(name = "product_specs")
+public class product_specs {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
 	
-	private int Id_product;
+	private int product_id;
+	
+	@Column(length = 50)
+	private String name;
+	
+	@Column(length = 255)
+	private String specs;
 	
 	public int getId() {
 		return Id;
@@ -14,20 +31,12 @@ public class product_specs {
 		Id = id;
 	}
 
-	public int getId_product() {
-		return Id_product;
+	public int getProduct_id() {
+		return product_id;
 	}
 
-	public void setId_product(int id_product) {
-		Id_product = id_product;
-	}
-
-	public product getProduct() {
-		return product;
-	}
-
-	public void setProduct(product product) {
-		this.product = product;
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
 	}
 
 	public String getName() {
@@ -46,9 +55,4 @@ public class product_specs {
 		this.specs = specs;
 	}
 
-	private product product;
-	
-	private String name;
-	
-	private String specs;
 }
